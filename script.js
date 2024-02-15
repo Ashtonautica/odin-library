@@ -27,7 +27,15 @@ function displayBooks() {
         for (const value of Object.values(book)) {
             const entry = document.createElement("td");
             if (value === true || value === false) {
-                entry.textContent = value.toString().charAt(0).toUpperCase() + value.toString().slice(1);
+                let readButton = document.createElement("button");
+                readButton.setAttribute("type", "button");
+                readButton.setAttribute("data-index", index);
+                readButton.textContent = value.toString().charAt(0).toUpperCase() + value.toString().slice(1);
+                readButton.addEventListener("click", () => {
+                    myLibrary[index].read = !(myLibrary[index].read);
+                    displayBooks();
+                });
+                entry.appendChild(readButton);
             } else {
                 entry.textContent = value;
             }
