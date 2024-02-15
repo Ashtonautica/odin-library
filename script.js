@@ -25,3 +25,7 @@ function displayBooks() {
         tbody.appendChild(tr);
     });
 };
+
+addBookToLibrary("The Hobbit");
+addBookToLibrary("Treasure Island");
+displayBooks();
