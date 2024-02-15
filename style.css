@@ -92,3 +92,21 @@ caption {
 
 
 /* My CSS here */
+
+body {
+    width: 100vw;
+    padding-top: 10vh;
+
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
