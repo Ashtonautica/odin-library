@@ -110,3 +110,7 @@ h1 {
     flex-direction: column;
     gap: 20px;
 }
+
+input, select {
+    margin-right: 20px;
+}
