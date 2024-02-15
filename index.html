@@ -15,10 +15,12 @@
             <input type="text" name="title" id="title">
             <label for="author">Author:</label>
             <input type="text" name="author" id="author">
-            <label for="read">Have you read this book?</label>
+            <label for="pages">Pages:</label>
+            <input type="number" name="pages" id="pages">
+            <label for="read">Read?</label>
             <select name="read" id="read">
-                <option value="true">Yes</option>
-                <option value="false">No</option>
+                <option value="true">True</option>
+                <option value="false">False</option>
             </select>
             <button type="submit">Add new book</button>
         </form>
@@ -27,6 +29,9 @@
             <thead>
                 <tr>
                     <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Pages</th>
+                    <th scope="col">Read?</th>
                 </tr>
             </thead>
             <tbody></tbody>
