@@ -60,10 +60,12 @@ function displayBooks() {
 
 formButton.addEventListener("click", e => {
     e.preventDefault();
-    addBookToLibrary(form.title.value, form.author.value, form.pages.value, Boolean(form.read.value));
+    let readStatus;
+    if (form.read.value === "true") {
+        readStatus = true;
+    } else {
+        readStatus = false;
+    }
+    addBookToLibrary(form.title.value, form.author.value, form.pages.value, readStatus);
     displayBooks();
 });
-
-addBookToLibrary("The Hobbit", "J.R.R Tolkien", 310, true);
-addBookToLibrary("Treasure Island", "Robert Louis Stevenson", 209, false);
-displayBooks();
