@@ -2,6 +2,7 @@ const myLibrary = [];
 const tbody = document.querySelector("tbody");
 const formButton = document.querySelector("form button");
 const form = document.querySelector("form");
+const deleteButtons = document.querySelectorAll("td button");
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -22,7 +23,7 @@ function clearTable() {
 
 function displayBooks() {
     clearTable();
-    myLibrary.forEach(book => {
+    myLibrary.forEach((book, index) => {
         const tr = document.createElement("tr");
         for (const value of Object.values(book)) {
             const entry = document.createElement("td");
@@ -33,6 +34,13 @@ function displayBooks() {
             }
             tr.appendChild(entry);
         }
+        const deleteCell = document.createElement("td");
+        const deleteButton = document.createElement("button");
+        deleteButton.setAttribute("type", "button");
+        deleteButton.setAttribute("data-index", index);
+        deleteButton.textContent = "X";
+        deleteCell.appendChild(deleteButton);
+        tr.appendChild(deleteCell);
         tbody.appendChild(tr);
     })
 };
