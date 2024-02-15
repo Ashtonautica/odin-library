@@ -2,7 +2,6 @@ const myLibrary = [];
 const tbody = document.querySelector("tbody");
 const formButton = document.querySelector("form button");
 const form = document.querySelector("form");
-const deleteButtons = document.querySelectorAll("td button");
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -33,23 +32,29 @@ function displayBooks() {
                 entry.textContent = value;
             }
             tr.appendChild(entry);
-        }
+        };
+
         const deleteCell = document.createElement("td");
         const deleteButton = document.createElement("button");
         deleteButton.setAttribute("type", "button");
         deleteButton.setAttribute("data-index", index);
         deleteButton.textContent = "X";
+        deleteButton.addEventListener("click", () => {
+            myLibrary.splice(index, 1);
+            displayBooks();
+        })
         deleteCell.appendChild(deleteButton);
         tr.appendChild(deleteCell);
+
         tbody.appendChild(tr);
-    })
+    });
 };
 
 formButton.addEventListener("click", e => {
     e.preventDefault();
     addBookToLibrary(form.title.value, form.author.value, form.pages.value, Boolean(form.read.value));
     displayBooks();
-})
+});
 
 addBookToLibrary("The Hobbit", "J.R.R Tolkien", 310, true);
 addBookToLibrary("Treasure Island", "Robert Louis Stevenson", 209, false);
